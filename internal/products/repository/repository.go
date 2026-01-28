@@ -136,6 +136,7 @@ func (r *productRepository) GetAllProducts() ([]entity.ResponseProductWithCatego
 			Price:        product.Price,
 			Stock:        product.Stock,
 			CategoryName: product.CategoryName,
+			CategoryID:   product.CategoryID,
 			CreatedAt:    createdAt,
 			UpdatedAt:    updatedAt,
 		})
@@ -182,6 +183,7 @@ func (r *productRepository) GetProductByID(id int64) (*entity.ResponseProductWit
 		Name:         product.Name,
 		Price:        product.Price,
 		Stock:        product.Stock,
+		CategoryID:   product.CategoryID,
 		CategoryName: product.CategoryName,
 		CreatedAt:    createdAt,
 		UpdatedAt:    updatedAt,

@@ -27,6 +27,7 @@ func NewCategoryHandler(service service.CategoryService) *CategoryHandler {
 // @Accept json
 // @Produce json
 // @Success 200 {object} map[string]interface{}
+// @Failure 503 {object} map[string]string
 // @Router /api/categories/health [get]
 func (h *CategoryHandler) API(w http.ResponseWriter, r *http.Request) {
 	var result response.APIResponse
@@ -53,6 +54,7 @@ func (h *CategoryHandler) API(w http.ResponseWriter, r *http.Request) {
 // @Param category body entity.RequestCategory true "Category Data"
 // @Success 201 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
+// @Failure 500 {object} map[string]string
 // @Router /api/categories [post]
 func (h *CategoryHandler) CreateCategory(w http.ResponseWriter, r *http.Request) {
 	var requestCategory entity.RequestCategory
@@ -79,6 +81,7 @@ func (h *CategoryHandler) CreateCategory(w http.ResponseWriter, r *http.Request)
 // @Param category body entity.RequestCategory true "Category Data"
 // @Success 200 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
+// @Failure 500 {object} map[string]string
 // @Router /api/categories/{id} [put]
 func (h *CategoryHandler) UpdateCategory(w http.ResponseWriter, r *http.Request) {
 	var requestCategory entity.RequestCategory
@@ -112,6 +115,7 @@ func (h *CategoryHandler) UpdateCategory(w http.ResponseWriter, r *http.Request)
 // @Param id path int true "Category ID"
 // @Success 200 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
+// @Failure 500 {object} map[string]string
 // @Router /api/categories/{id} [delete]
 func (h *CategoryHandler) DeleteCategory(w http.ResponseWriter, r *http.Request) {
 	idStr := strings.TrimPrefix(r.URL.Path, "/categories/")
@@ -138,6 +142,7 @@ func (h *CategoryHandler) DeleteCategory(w http.ResponseWriter, r *http.Request)
 // @Param id path int true "Category ID"
 // @Success 200 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
+// @Failure 500 {object} map[string]string
 // @Router /api/categories/{id} [get]
 func (h *CategoryHandler) GetCategoryByID(w http.ResponseWriter, r *http.Request) {
 	idStr := strings.TrimPrefix(r.URL.Path, "/categories/")
@@ -163,7 +168,7 @@ func (h *CategoryHandler) GetCategoryByID(w http.ResponseWriter, r *http.Request
 // @Accept json
 // @Produce json
 // @Success 200 {object} map[string]interface{}
-// @Failure 400 {object} map[string]string
+// @Failure 500 {object} map[string]string
 // @Router /api/categories [get]
 func (h *CategoryHandler) GetAllCategories(w http.ResponseWriter, r *http.Request) {
 	categories, err := h.service.GetAllCategories()
