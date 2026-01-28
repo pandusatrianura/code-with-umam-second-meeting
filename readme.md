@@ -112,8 +112,13 @@ The application provides several API endpoints for the functionalities mentioned
 2. Use API Documentation to interact with the API endpoints.
     
     ```bash
-    swagger: http://{{url}}/api/v1/docs
+    swagger: http://{{url}}/api/docs
    ```
+   Note: 
+   - Replace `{{url}}` with the URL of your deployed API (see 📖 Hosted API).
+   - This docs are generated using [swaggo](https://github.com/swaggo/swag).
+   - You can also generate the docs locally using `swag init`.
+   - This docs run under HTTP protocol.
 
 ## 📃 List of API Endpoints
 
