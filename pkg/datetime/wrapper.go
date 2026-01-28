@@ -3,6 +3,7 @@ package datetime
 import (
 	"log"
 	"time"
+	_ "time/tzdata"
 )
 
 func ParseTime(timeString string) (time.Time, error) {
