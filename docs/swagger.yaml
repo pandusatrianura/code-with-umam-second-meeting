@@ -18,7 +18,7 @@ definitions:
       stock:
         type: integer
     type: object
-host: railway.pandusatrianura.cloud/
+host: railway.pandusatrianura.cloud
 info:
   contact: {}
   title: Kasir API

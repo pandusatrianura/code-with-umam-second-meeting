@@ -6,9 +6,9 @@ import (
 	"net/http"
 
 	route "github.com/pandusatrianura/code-with-umam-second-meeting/api/router"
-	categoriesHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/delivery/http"
+	categoryHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/delivery/http"
 	categoryRepository "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/repository"
-	categoriesService "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/service"
+	categoryService "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/service"
 	productHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/delivery/http"
 	productRepository "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/repository"
 	productService "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/service"
@@ -32,8 +32,8 @@ func NewAPIServer(addr string, db *database.DB) *Server {
 func (s *Server) Run() error {
 
 	categoriesRepo := categoryRepository.NewCategoryRepository(s.db)
-	categoriesService := categoriesService.NewCategoryService(categoriesRepo)
-	categoriesHandler := categoriesHandler.NewCategoryHandler(categoriesService)
+	categoriesService := categoryService.NewCategoryService(categoriesRepo)
+	categoriesHandler := categoryHandler.NewCategoryHandler(categoriesService)
 
 	productsRepo := productRepository.NewProductRepository(s.db)
 	productsService := productService.NewProductService(productsRepo)
