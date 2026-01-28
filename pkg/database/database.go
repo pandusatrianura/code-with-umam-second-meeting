@@ -1,7 +1,6 @@
 package database
 
 import (
-	"database/sql"
 	"fmt"
 	"log"
 
@@ -9,7 +8,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-func InitDatabase() {
+func InitDatabase() (*DB, error) {
 	username := viper.GetString("DATABASE_USER")
 	password := viper.GetString("DATABASE_PASSWORD")
 	host := viper.GetString("DATABASE_HOST")
@@ -21,19 +20,21 @@ func InitDatabase() {
 
 	dsn := fmt.Sprintf("postgresql://%s:%s@%s:%d/%s", username, password, host, port, dbname)
 
-	db, err := sql.Open("postgres", dsn)
+	database, err := Open("postgres", dsn)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = db.Ping()
+	err = database.DB.Ping()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	db.SetMaxOpenConns(maxOpenConnection)
-	db.SetMaxIdleConns(maxIdleConnection)
-	db.SetConnMaxLifetime(maxLifetimeConnection)
+	database.DB.SetMaxOpenConns(maxOpenConnection)
+	database.DB.SetMaxIdleConns(maxIdleConnection)
+	database.DB.SetConnMaxLifetime(maxLifetimeConnection)
 
 	log.Println("Successfully connected to the database!")
+
+	return database, nil
 }
