@@ -198,6 +198,8 @@ The application provides several API endpoints for the functionalities mentioned
    ```bash
    curl --location --request DELETE '{{url}}/api/products/9'
    ```
+   
+**Note:** Replace `{{url}}` with the URL of your deployed API (see 📖 Hosted API).
 
 ## 📖 Hosted API
 
