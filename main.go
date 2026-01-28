@@ -13,7 +13,7 @@ import (
 
 // @title Kasir API
 // @version 1.0
-// @host sumopod.pandusatrianura.cloud
+// @host kasir.pandusatrianura.cloud
 // @BasePath /
 
 func main() {

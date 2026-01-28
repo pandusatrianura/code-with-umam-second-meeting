@@ -42,7 +42,7 @@ func (s *Server) Run() error {
 	r := route.NewRouter(categoriesHandler, productsHandler)
 	routes := r.RegisterRoutes()
 	router := http.NewServeMux()
-	router.Handle("/kasir/api/", http.StripPrefix("/kasir/api", routes))
+	router.Handle("/api/", http.StripPrefix("/api", routes))
 	log.Println("Starting server on port", s.addr)
 	return http.ListenAndServe(s.addr, router)
 }
