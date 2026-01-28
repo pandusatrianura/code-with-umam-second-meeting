@@ -1,6 +1,7 @@
 package datetime
 
 import (
+	"log"
 	"time"
 )
 
@@ -16,6 +17,8 @@ func ParseTime(timeString string) (time.Time, error) {
 	if err != nil {
 		return time.Time{}, err
 	}
+
+	log.Println("parsedTime:", parsedTime.In(loc))
 
 	return parsedTime.In(loc), nil
 }

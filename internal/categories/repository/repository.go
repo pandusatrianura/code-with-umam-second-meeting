@@ -2,7 +2,6 @@ package repository
 
 import (
 	"errors"
-	"log"
 
 	"github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/entity"
 	"github.com/pandusatrianura/code-with-umam-second-meeting/pkg/database"
@@ -126,9 +125,6 @@ func (r *categoryRepository) GetCategoryByID(id int64) (*entity.ResponseCategory
 	if category.ID == 0 {
 		return nil, errors.New("category not found")
 	}
-
-	log.Println("category.CreatedAt : ", category.CreatedAt)
-	log.Println("category.UpdatedAt : ", category.UpdatedAt)
 
 	createdAt, _ := datetime.ParseTime(category.CreatedAt)
 	updatedAt, _ := datetime.ParseTime(category.UpdatedAt)
