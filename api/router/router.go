@@ -35,7 +35,7 @@ func (h *Router) RegisterRoutes() *http.ServeMux {
 	r.HandleFunc("GET /categories/{id}", h.categories.GetCategoryByID)
 	r.HandleFunc("PUT /categories/{id}", h.categories.UpdateCategory)
 	r.HandleFunc("DELETE /categories/{id}", h.categories.DeleteCategory)
-	r.HandleFunc("GET /docs", func(w http.ResponseWriter, r *http.Request) {
+	r.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
 		htmlContent, err := scalar.ApiReferenceHTML(&scalar.Options{
 			SpecURL: "./docs/swagger.json",
 			CustomOptions: scalar.CustomOptions{
