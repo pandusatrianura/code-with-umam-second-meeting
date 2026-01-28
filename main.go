@@ -13,7 +13,7 @@ import (
 
 // @title Kasir API
 // @version 1.0
-// @host https://railway.pandusatrianura.cloud
+// @host kasir-api-pandusatrianura.up.railway.app
 // @BasePath /
 
 func main() {
