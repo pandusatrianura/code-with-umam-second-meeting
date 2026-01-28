@@ -33,17 +33,18 @@
 
 ```json
 {
-  "code": "1000",
-  "message": "Product retrieved successfully",
-  "data": {
-    "id": 1,
-    "name": "Bebelac",
-    "price": 10000,
-    "stock": 100,
-    "category_name": "Susu",
-    "created_at": "2026-01-29T04:27:44.690013+07:00",
-    "updated_at": "2026-01-29T04:27:44.690013+07:00"
-  }
+   "code": "1000",
+   "message": "Product retrieved successfully",
+   "data": {
+      "id": 1,
+      "name": "Bebelac",
+      "price": 10000,
+      "stock": 100,
+      "category_id": 1,
+      "category_name": "Susu",
+      "created_at": "2026-01-29T04:27:44.690013+07:00",
+      "updated_at": "2026-01-29T04:27:44.690013+07:00"
+   }
 }
 ```
 
