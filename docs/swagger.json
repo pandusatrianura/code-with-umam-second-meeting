@@ -5,10 +5,10 @@
         "contact": {},
         "version": "1.0"
     },
-    "host": "localhost:8080/",
+    "host": "kasir-api-pandusatrianura.up.railway.app/",
     "basePath": "/",
     "paths": {
-        "/api/categories": {
+        "/kasir/api/categories": {
             "get": {
                 "description": "Get all categories",
                 "consumes": [
@@ -41,7 +41,7 @@
                 }
             }
         },
-        "/api/categories/": {
+        "/kasir/api/categories/": {
             "post": {
                 "description": "Create a new category",
                 "consumes": [
@@ -85,7 +85,7 @@
                 }
             }
         },
-        "/api/categories/health": {
+        "/kasir/api/categories/health": {
             "get": {
                 "description": "Get health status of categories API",
                 "consumes": [
@@ -109,7 +109,7 @@
                 }
             }
         },
-        "/api/categories/{id}": {
+        "/kasir/api/categories/{id}": {
             "get": {
                 "description": "Get a category by ID",
                 "consumes": [
@@ -240,7 +240,7 @@
                 }
             }
         },
-        "/api/products": {
+        "/kasir/api/products": {
             "get": {
                 "description": "Get all products",
                 "consumes": [
@@ -273,7 +273,7 @@
                 }
             }
         },
-        "/api/products/": {
+        "/kasir/api/products/": {
             "post": {
                 "description": "Create a new product",
                 "consumes": [
@@ -317,7 +317,7 @@
                 }
             }
         },
-        "/api/products/health": {
+        "/kasir/api/products/health": {
             "get": {
                 "description": "Get health status of products API",
                 "consumes": [
@@ -341,7 +341,7 @@
                 }
             }
         },
-        "/api/products/{id}": {
+        "/kasir/api/products/{id}": {
             "get": {
                 "description": "Get a product by ID",
                 "consumes": [

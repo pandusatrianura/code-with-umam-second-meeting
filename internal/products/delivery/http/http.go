@@ -27,7 +27,7 @@ func NewProductHandler(service service.ProductService) *ProductHandler {
 // @Accept json
 // @Produce json
 // @Success 200 {object} map[string]interface{}
-// @Router /api/products/health [get]
+// @Router /kasir/api/products/health [get]
 func (h *ProductHandler) API(w http.ResponseWriter, r *http.Request) {
 	var result response.APIResponse
 	svcHealthCheckResult := h.service.API()
@@ -54,7 +54,7 @@ func (h *ProductHandler) API(w http.ResponseWriter, r *http.Request) {
 // @Param product body entity.RequestProduct true "Product Data"
 // @Success 201 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
-// @Router /api/products/ [post]
+// @Router /kasir/api/products/ [post]
 func (h *ProductHandler) CreateProduct(w http.ResponseWriter, r *http.Request) {
 	var requestProduct entity.RequestProduct
 	if err := response.ParseJSON(r, &requestProduct); err != nil {
@@ -80,7 +80,7 @@ func (h *ProductHandler) CreateProduct(w http.ResponseWriter, r *http.Request) {
 // @Param product body entity.RequestProduct true "Product Data"
 // @Success 200 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
-// @Router /api/products/{id} [put]
+// @Router /kasir/api/products/{id} [put]
 func (h *ProductHandler) UpdateProduct(w http.ResponseWriter, r *http.Request) {
 	var requestProduct entity.RequestProduct
 
@@ -113,7 +113,7 @@ func (h *ProductHandler) UpdateProduct(w http.ResponseWriter, r *http.Request) {
 // @Param id path int true "Product ID"
 // @Success 200 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
-// @Router /api/products/{id} [delete]
+// @Router /kasir/api/products/{id} [delete]
 func (h *ProductHandler) DeleteProduct(w http.ResponseWriter, r *http.Request) {
 	idStr := strings.TrimPrefix(r.URL.Path, "/products/")
 	id, err := strconv.Atoi(idStr)
@@ -139,7 +139,7 @@ func (h *ProductHandler) DeleteProduct(w http.ResponseWriter, r *http.Request) {
 // @Param id path int true "Product ID"
 // @Success 200 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
-// @Router /api/products/{id} [get]
+// @Router /kasir/api/products/{id} [get]
 func (h *ProductHandler) GetProductByID(w http.ResponseWriter, r *http.Request) {
 	idStr := strings.TrimPrefix(r.URL.Path, "/products/")
 	id, err := strconv.Atoi(idStr)
@@ -165,7 +165,7 @@ func (h *ProductHandler) GetProductByID(w http.ResponseWriter, r *http.Request) 
 // @Produce json
 // @Success 200 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
-// @Router /api/products [get]
+// @Router /kasir/api/products [get]
 func (h *ProductHandler) GetAllProducts(w http.ResponseWriter, r *http.Request) {
 	products, err := h.service.GetAllProducts()
 	if err != nil {

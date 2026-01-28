@@ -13,13 +13,13 @@ import (
 
 // @title Kasir API
 // @version 1.0
-// @host localhost:8080/
+// @host kasir-api-pandusatrianura.up.railway.app/
 // @BasePath /
 
 func main() {
 	config.InitConfig()
 
-	myFigure := figure.NewFigure("Kasir API", "isometric1", true)
+	myFigure := figure.NewFigure("Kasir API", "rectangles", true)
 	myFigure.Print()
 	fmt.Println()
 	fmt.Println("==========================================================")

@@ -15,7 +15,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/categories": {
+        "/kasir/api/categories": {
             "get": {
                 "description": "Get all categories",
                 "consumes": [
@@ -48,7 +48,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/categories/": {
+        "/kasir/api/categories/": {
             "post": {
                 "description": "Create a new category",
                 "consumes": [
@@ -92,7 +92,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/categories/health": {
+        "/kasir/api/categories/health": {
             "get": {
                 "description": "Get health status of categories API",
                 "consumes": [
@@ -116,7 +116,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/categories/{id}": {
+        "/kasir/api/categories/{id}": {
             "get": {
                 "description": "Get a category by ID",
                 "consumes": [
@@ -247,7 +247,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/products": {
+        "/kasir/api/products": {
             "get": {
                 "description": "Get all products",
                 "consumes": [
@@ -280,7 +280,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/products/": {
+        "/kasir/api/products/": {
             "post": {
                 "description": "Create a new product",
                 "consumes": [
@@ -324,7 +324,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/products/health": {
+        "/kasir/api/products/health": {
             "get": {
                 "description": "Get health status of products API",
                 "consumes": [
@@ -348,7 +348,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/products/{id}": {
+        "/kasir/api/products/{id}": {
             "get": {
                 "description": "Get a product by ID",
                 "consumes": [
@@ -515,7 +515,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:8080/",
+	Host:             "kasir-api-pandusatrianura.up.railway.app/",
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "Kasir API",

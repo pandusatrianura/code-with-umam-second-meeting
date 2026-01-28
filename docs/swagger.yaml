@@ -18,13 +18,13 @@ definitions:
       stock:
         type: integer
     type: object
-host: localhost:8080/
+host: kasir-api-pandusatrianura.up.railway.app/
 info:
   contact: {}
   title: Kasir API
   version: "1.0"
 paths:
-  /api/categories:
+  /kasir/api/categories:
     get:
       consumes:
       - application/json
@@ -46,7 +46,7 @@ paths:
       summary: Get all categories
       tags:
       - categories
-  /api/categories/:
+  /kasir/api/categories/:
     post:
       consumes:
       - application/json
@@ -75,7 +75,7 @@ paths:
       summary: Create a new category
       tags:
       - categories
-  /api/categories/{id}:
+  /kasir/api/categories/{id}:
     delete:
       consumes:
       - application/json
@@ -163,7 +163,7 @@ paths:
       summary: Update a category
       tags:
       - categories
-  /api/categories/health:
+  /kasir/api/categories/health:
     get:
       consumes:
       - application/json
@@ -179,7 +179,7 @@ paths:
       summary: Get health status of categories API
       tags:
       - categories
-  /api/products:
+  /kasir/api/products:
     get:
       consumes:
       - application/json
@@ -201,7 +201,7 @@ paths:
       summary: Get all products
       tags:
       - products
-  /api/products/:
+  /kasir/api/products/:
     post:
       consumes:
       - application/json
@@ -230,7 +230,7 @@ paths:
       summary: Create a new product
       tags:
       - products
-  /api/products/{id}:
+  /kasir/api/products/{id}:
     delete:
       consumes:
       - application/json
@@ -318,7 +318,7 @@ paths:
       summary: Update a product
       tags:
       - products
-  /api/products/health:
+  /kasir/api/products/health:
     get:
       consumes:
       - application/json
