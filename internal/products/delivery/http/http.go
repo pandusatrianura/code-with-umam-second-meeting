@@ -54,7 +54,7 @@ func (h *ProductHandler) API(w http.ResponseWriter, r *http.Request) {
 // @Param product body entity.RequestProduct true "Product Data"
 // @Success 201 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
-// @Router /api/products/ [post]
+// @Router /api/products [post]
 func (h *ProductHandler) CreateProduct(w http.ResponseWriter, r *http.Request) {
 	var requestProduct entity.RequestProduct
 	if err := response.ParseJSON(r, &requestProduct); err != nil {

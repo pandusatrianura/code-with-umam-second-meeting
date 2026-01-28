@@ -46,9 +46,7 @@ const docTemplate = `{
                         }
                     }
                 }
-            }
-        },
-        "/api/categories/": {
+            },
             "post": {
                 "description": "Create a new category",
                 "consumes": [
@@ -278,9 +276,7 @@ const docTemplate = `{
                         }
                     }
                 }
-            }
-        },
-        "/api/products/": {
+            },
             "post": {
                 "description": "Create a new product",
                 "consumes": [

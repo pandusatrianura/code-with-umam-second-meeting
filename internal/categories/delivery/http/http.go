@@ -53,7 +53,7 @@ func (h *CategoryHandler) API(w http.ResponseWriter, r *http.Request) {
 // @Param category body entity.RequestCategory true "Category Data"
 // @Success 201 {object} map[string]interface{}
 // @Failure 400 {object} map[string]string
-// @Router /api/categories/ [post]
+// @Router /api/categories [post]
 func (h *CategoryHandler) CreateCategory(w http.ResponseWriter, r *http.Request) {
 	var requestCategory entity.RequestCategory
 	if err := response.ParseJSON(r, &requestCategory); err != nil {

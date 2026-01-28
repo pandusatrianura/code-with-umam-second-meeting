@@ -46,7 +46,6 @@ paths:
       summary: Get all categories
       tags:
       - categories
-  /api/categories/:
     post:
       consumes:
       - application/json
@@ -201,7 +200,6 @@ paths:
       summary: Get all products
       tags:
       - products
-  /api/products/:
     post:
       consumes:
       - application/json
