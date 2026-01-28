@@ -1,0 +1,288 @@
+{
+  "info": {
+    "_postman_id": "e1aa79d9-61d5-4521-9127-f81b790c0153",
+    "name": "Code With Umam - Kasir API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "8814057"
+  },
+  "item": [
+    {
+      "name": "Health Check - Categories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/categories/health",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "categories",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API Docs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/docs",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "docs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Display All Categories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/categories",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "categories"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Display Category By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/categories/2",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "categories",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create New Category",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Susu\",\n    \"description\": \"Kategori Susu\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/categories",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "categories"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Existing Category",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Minuman\",\n    \"description\": \"Kategori Minuman\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/categories/1",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "categories",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete A Category",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/categories/1",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "categories",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Health Check - Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/products/health",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "products",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Display All Product",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/products",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Display Product By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/products/1",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "products",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create New Product",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Bebelac\",\n    \"price\": 10000,\n    \"stock\": 100,\n    \"category_id\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/products",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Existing Product",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Bebelac\",\n    \"price\": 10000,\n    \"stock\": 10,\n    \"category_id\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/products/1",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "products",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete A Product",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/products/4",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "products",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
