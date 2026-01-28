@@ -2,7 +2,6 @@
 package api
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
@@ -14,7 +13,6 @@ import (
 	productRepository "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/repository"
 	productService "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/service"
 	"github.com/pandusatrianura/code-with-umam-second-meeting/pkg/database"
-	"github.com/pandusatrianura/code-with-umam-second-meeting/pkg/scalar"
 )
 
 type Server struct {
@@ -45,25 +43,6 @@ func (s *Server) Run() error {
 	routes := r.RegisterRoutes()
 	router := http.NewServeMux()
 	router.Handle("/kasir/api/", http.StripPrefix("/kasir/api", routes))
-	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-		htmlContent, err := scalar.ApiReferenceHTML(&scalar.Options{
-			SpecURL: "./docs/swagger.json",
-			CustomOptions: scalar.CustomOptions{
-				PageTitle: "Test Kasir API",
-			},
-			DarkMode: true,
-		})
-
-		if err != nil {
-			fmt.Printf("%v", err)
-		}
-
-		_, err = fmt.Fprintln(w, htmlContent)
-		if err != nil {
-			return
-		}
-	})
-
 	log.Println("Starting server on port", s.addr)
 	return http.ListenAndServe(s.addr, router)
 }

@@ -1,10 +1,12 @@
 package router
 
 import (
+	"fmt"
 	"net/http"
 
 	categoriesHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/delivery/http"
 	productsHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/delivery/http"
+	"github.com/pandusatrianura/code-with-umam-second-meeting/pkg/scalar"
 )
 
 type Router struct {
@@ -33,5 +35,23 @@ func (h *Router) RegisterRoutes() *http.ServeMux {
 	r.HandleFunc("GET /categories/{id}", h.categories.GetCategoryByID)
 	r.HandleFunc("PUT /categories/{id}", h.categories.UpdateCategory)
 	r.HandleFunc("DELETE /categories/{id}", h.categories.DeleteCategory)
+	r.HandleFunc("GET /docs", func(w http.ResponseWriter, r *http.Request) {
+		htmlContent, err := scalar.ApiReferenceHTML(&scalar.Options{
+			SpecURL: "./docs/swagger.json",
+			CustomOptions: scalar.CustomOptions{
+				PageTitle: "Test Kasir API",
+			},
+			DarkMode: true,
+		})
+
+		if err != nil {
+			fmt.Printf("%v", err)
+		}
+
+		_, err = fmt.Fprintln(w, htmlContent)
+		if err != nil {
+			return
+		}
+	})
 	return r
 }
