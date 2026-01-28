@@ -19,7 +19,7 @@ import (
 func main() {
 	config.InitConfig()
 
-	myFigure := figure.NewFigure("Kasir API", "rectangles", true)
+	myFigure := figure.NewColorFigure("Kasir API", "", "green", true)
 	myFigure.Print()
 	fmt.Println()
 	fmt.Println("==========================================================")
