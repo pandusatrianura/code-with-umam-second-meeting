@@ -13,6 +13,8 @@
 [![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=fff)](#)
 [![Go](https://img.shields.io/badge/Go-00ADD8?logo=Go&logoColor=white&style=for-the-badge)](#)
 
+<img src ="./assets/web.webp" width="80%">
+
 </div>
 
 ## 🎯 Task 
