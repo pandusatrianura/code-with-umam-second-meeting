@@ -11,14 +11,14 @@ import (
 
 type DB struct {
 	*sql.DB
-	logging bool
+	Logging bool
 }
 
 var LogFn = log.Printf
 
 func Open(driverName, dataSourceName string) (*DB, error) {
 	db, err := sql.Open(driverName, dataSourceName)
-	return &DB{DB: db, logging: true}, err
+	return &DB{DB: db, Logging: true}, err
 }
 
 func (db *DB) WithStmt(query string, fn func(stmt *Stmt) error) error {

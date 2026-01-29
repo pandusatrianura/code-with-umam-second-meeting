@@ -1,7 +1,8 @@
-// Server represents an HTTP server with an address for listening to incoming requests.
+// Package api Server represents an HTTP server with an address for listening to incoming requests.
 package api
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -20,7 +21,7 @@ type Server struct {
 	db   *database.DB
 }
 
-// NewAPIServer initializes and returns a new Server instance configured to listen on the specified address.
+// NewAPIServer initializes and returns a new Server instance configured to listen to the specified address.
 func NewAPIServer(addr string, db *database.DB) *Server {
 	return &Server{
 		addr: addr,
@@ -43,6 +44,8 @@ func (s *Server) Run() error {
 	routes := r.RegisterRoutes()
 	router := http.NewServeMux()
 	router.Handle("/api/", http.StripPrefix("/api", routes))
-	log.Println("Starting server on port", s.addr)
+
+	addr := fmt.Sprintf("%s%s", "0.0.0.0", s.addr)
+	log.Println("Starting server on", addr)
 	return http.ListenAndServe(s.addr, router)
 }

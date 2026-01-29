@@ -1,20 +1,18 @@
 package config
 
 import (
-	"log"
+	"os"
+	"strings"
 
 	"github.com/spf13/viper"
 )
 
 func InitConfig() {
-	viper.SetConfigType("env")
-	viper.SetConfigFile(".env")
-
-	if err := viper.ReadInConfig(); err != nil {
-		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
-			log.Println("Warning: .env file not found, falling back to environment variables")
-		}
-	}
-
 	viper.AutomaticEnv()
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+
+	if _, err := os.Stat(".env"); err == nil {
+		viper.SetConfigFile(".env")
+		_ = viper.ReadInConfig()
+	}
 }

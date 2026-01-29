@@ -30,7 +30,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to initialize database: %v", err)
 	}
-	defer db.Close()
+	defer func(db *database.DB) {
+		err := db.Close()
+		if err != nil {
+			log.Fatalf("Failed to close database: %v", err)
+		}
+	}(db)
 
 	server := api.NewAPIServer(fmt.Sprintf(":%s", port), db)
 	if err := server.Run(); err != nil {
