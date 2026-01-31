@@ -1,7 +1,6 @@
 package config
 
 import (
-	"log"
 	"os"
 	"strings"
 
@@ -9,16 +8,11 @@ import (
 )
 
 func InitConfig() {
-	v := viper.New()
+	viper.AutomaticEnv()
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
 	if _, err := os.Stat(".env"); err == nil {
-		v.SetConfigFile(".env")
+		viper.SetConfigFile(".env")
+		_ = viper.ReadInConfig()
 	}
-
-	if err := v.ReadInConfig(); err != nil {
-		log.Fatalf("Failed to read config file: %v", err)
-	}
-
-	v.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
-	v.AutomaticEnv()
 }
