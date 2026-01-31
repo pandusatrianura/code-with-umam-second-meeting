@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	categoriesHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/delivery/http"
+	healthHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/health/delivery/http"
 	productsHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/delivery/http"
 	"github.com/pandusatrianura/code-with-umam-second-meeting/pkg/scalar"
 )
@@ -12,17 +13,21 @@ import (
 type Router struct {
 	categories *categoriesHandler.CategoryHandler
 	products   *productsHandler.ProductHandler
+	health     *healthHandler.HealthHandler
 }
 
-func NewRouter(categoriesHandler *categoriesHandler.CategoryHandler, productHandler *productsHandler.ProductHandler) *Router {
+func NewRouter(categoriesHandler *categoriesHandler.CategoryHandler, productHandler *productsHandler.ProductHandler, healthHandler *healthHandler.HealthHandler) *Router {
 	return &Router{
 		categories: categoriesHandler,
 		products:   productHandler,
+		health:     healthHandler,
 	}
 }
 
 func (h *Router) RegisterRoutes() *http.ServeMux {
 	r := http.NewServeMux()
+	r.HandleFunc("GET /health/service", h.health.API)
+	r.HandleFunc("GET /health/db", h.health.DB)
 	r.HandleFunc("GET /products/health", h.products.API)
 	r.HandleFunc("POST /products", h.products.CreateProduct)
 	r.HandleFunc("GET /products", h.products.GetAllProducts)

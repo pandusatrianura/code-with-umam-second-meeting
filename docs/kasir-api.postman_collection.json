@@ -26,6 +26,44 @@
       "response": []
     },
     {
+      "name": "Health Check - Service",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/health/service",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "health",
+            "service"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Health Check - Database",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/api/health/db",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "health",
+            "db"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "API Docs",
       "request": {
         "method": "GET",
@@ -217,7 +255,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"name\": \"Bebelac\",\n    \"price\": 10000,\n    \"stock\": 100,\n    \"category_id\": 2\n}",
+          "raw": "{\n    \"name\": \"Bebelac\",\n    \"price\": 10000,\n    \"stock\": 100,\n    \"category_id\": 1\n}",
           "options": {
             "raw": {
               "language": "json"

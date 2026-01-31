@@ -18,7 +18,6 @@ definitions:
       stock:
         type: integer
     type: object
-host: kasir.pandusatrianura.cloud
 info:
   contact: {}
   title: Kasir API
@@ -37,8 +36,8 @@ paths:
           schema:
             additionalProperties: true
             type: object
-        "400":
-          description: Bad Request
+        "500":
+          description: Internal Server Error
           schema:
             additionalProperties:
               type: string
@@ -71,6 +70,12 @@ paths:
             additionalProperties:
               type: string
             type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: Create a new category
       tags:
       - categories
@@ -99,6 +104,12 @@ paths:
             additionalProperties:
               type: string
             type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: Delete a category
       tags:
       - categories
@@ -122,6 +133,12 @@ paths:
             type: object
         "400":
           description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
           schema:
             additionalProperties:
               type: string
@@ -159,6 +176,12 @@ paths:
             additionalProperties:
               type: string
             type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: Update a category
       tags:
       - categories
@@ -175,9 +198,59 @@ paths:
           schema:
             additionalProperties: true
             type: object
+        "503":
+          description: Service Unavailable
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: Get health status of categories API
       tags:
       - categories
+  /api/health/db:
+    get:
+      consumes:
+      - application/json
+      description: Get health status of Database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "503":
+          description: Service Unavailable
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get health status of Database
+      tags:
+      - healthcheck
+  /api/health/service:
+    get:
+      consumes:
+      - application/json
+      description: Get health status of API
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "503":
+          description: Service Unavailable
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get health status of API
+      tags:
+      - healthcheck
   /api/products:
     get:
       consumes:
@@ -191,8 +264,8 @@ paths:
           schema:
             additionalProperties: true
             type: object
-        "400":
-          description: Bad Request
+        "500":
+          description: Internal Server Error
           schema:
             additionalProperties:
               type: string
@@ -225,6 +298,12 @@ paths:
             additionalProperties:
               type: string
             type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: Create a new product
       tags:
       - products
@@ -253,6 +332,12 @@ paths:
             additionalProperties:
               type: string
             type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: Delete a product
       tags:
       - products
@@ -276,6 +361,12 @@ paths:
             type: object
         "400":
           description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
           schema:
             additionalProperties:
               type: string
@@ -313,6 +404,12 @@ paths:
             additionalProperties:
               type: string
             type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: Update a product
       tags:
       - products
@@ -328,6 +425,12 @@ paths:
           description: OK
           schema:
             additionalProperties: true
+            type: object
+        "503":
+          description: Service Unavailable
+          schema:
+            additionalProperties:
+              type: string
             type: object
       summary: Get health status of products API
       tags:

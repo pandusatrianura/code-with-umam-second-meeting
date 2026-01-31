@@ -38,12 +38,12 @@ func (h *ProductHandler) API(w http.ResponseWriter, r *http.Request) {
 		result.Message = fmt.Sprintf("%s is healthy", svcHealthCheckResult.Name)
 		response.WriteJSONResponse(w, http.StatusOK, result)
 		return
-	} else {
-		result.Code = strconv.Itoa(constants.ErrorCode)
-		result.Message = fmt.Sprintf("%s is not healthy", svcHealthCheckResult.Name)
-		response.WriteJSONResponse(w, http.StatusServiceUnavailable, result)
-		return
 	}
+
+	result.Code = strconv.Itoa(constants.ErrorCode)
+	result.Message = fmt.Sprintf("%s is not healthy", svcHealthCheckResult.Name)
+	response.WriteJSONResponse(w, http.StatusServiceUnavailable, result)
+	return
 }
 
 // CreateProduct godoc

@@ -13,7 +13,6 @@ import (
 
 // @title Kasir API
 // @version 1.0
-// @host kasir.pandusatrianura.cloud
 // @BasePath /
 
 func main() {

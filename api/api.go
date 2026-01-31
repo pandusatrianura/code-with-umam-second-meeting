@@ -10,6 +10,9 @@ import (
 	categoryHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/delivery/http"
 	categoryRepository "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/repository"
 	categoryService "github.com/pandusatrianura/code-with-umam-second-meeting/internal/categories/service"
+	healthHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/health/delivery/http"
+	healthRepository "github.com/pandusatrianura/code-with-umam-second-meeting/internal/health/repository"
+	healthService "github.com/pandusatrianura/code-with-umam-second-meeting/internal/health/service"
 	productHandler "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/delivery/http"
 	productRepository "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/repository"
 	productService "github.com/pandusatrianura/code-with-umam-second-meeting/internal/products/service"
@@ -33,14 +36,18 @@ func NewAPIServer(addr string, db *database.DB) *Server {
 func (s *Server) Run() error {
 
 	categoriesRepo := categoryRepository.NewCategoryRepository(s.db)
-	categoriesService := categoryService.NewCategoryService(categoriesRepo)
-	categoriesHandler := categoryHandler.NewCategoryHandler(categoriesService)
+	categoriesSvc := categoryService.NewCategoryService(categoriesRepo)
+	categoriesHandler := categoryHandler.NewCategoryHandler(categoriesSvc)
 
 	productsRepo := productRepository.NewProductRepository(s.db)
-	productsService := productService.NewProductService(productsRepo)
-	productsHandler := productHandler.NewProductHandler(productsService)
+	productsSvc := productService.NewProductService(productsRepo)
+	productsHandler := productHandler.NewProductHandler(productsSvc)
 
-	r := route.NewRouter(categoriesHandler, productsHandler)
+	healthRepo := healthRepository.NewHealthRepository(s.db)
+	healthSvc := healthService.NewHealthService(healthRepo)
+	healthHandle := healthHandler.NewHealthHandler(healthSvc)
+
+	r := route.NewRouter(categoriesHandler, productsHandler, healthHandle)
 	routes := r.RegisterRoutes()
 	router := http.NewServeMux()
 	router.Handle("/api/", http.StripPrefix("/api", routes))
