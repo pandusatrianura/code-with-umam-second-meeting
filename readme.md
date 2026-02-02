@@ -81,19 +81,19 @@ The application provides several API endpoints for the functionalities mentioned
 - **Ambil semua produk**: `GET /products`
 - **Tambah satu produk**: `POST /products`
 - **Update satu produk**: `PUT /products/{id}`
-- **Ambil detail satu kategori**: `GET /products/{id}`
-- **Hapus satu kategori**: `DELETE /products/{id}`
+- **Ambil detail satu produk**: `GET /products/{id}`
+- **Hapus satu produk**: `DELETE /products/{id}`
 
 ## 🛠️ Installation
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/pandusatrianura/code-with-umam-second-meeting
    ```
 
 2. **Install Dependencies**:
    ```bash
-   cd <project-directory>
+   cd github.com/pandusatrianura/code-with-umam-second-meeting
    go mod tidy
    ```
 
